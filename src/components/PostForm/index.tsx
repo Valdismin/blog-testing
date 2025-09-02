@@ -43,7 +43,11 @@ export default function PostForm() {
             elevation={3}
             sx={{
                 maxWidth: 700,
-                width:700,
+                width: {
+                    xs: "100%",
+                    sm: "100%",
+                    md: 700
+                },
                 mx: "auto",
                 p: 3,
                 mb: 3,
