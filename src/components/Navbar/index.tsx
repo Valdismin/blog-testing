@@ -1,5 +1,5 @@
-import { AppBar, Toolbar, Typography, Button, Box } from "@mui/material";
-import { Link } from "react-router-dom";
+import {AppBar, Toolbar, Typography, Button, Box} from "@mui/material";
+import {Link} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {AppDispatch, RootState} from "../../store/store.ts";
 import {useEffect} from "react";
@@ -20,23 +20,31 @@ const Navbar = () => {
 
     return (
         <AppBar position="static">
-            <Toolbar>
+            <Toolbar sx={{
+                display: "flex",
+                justifyContent: {xs: "space-between"},
+            }}>
                 <Typography
                     variant="h6"
                     component={Link}
                     to="/"
-                    style={{ flexGrow: 1, textDecoration: "none", color: "inherit" }}
+                    style={{flexGrow: 1, textDecoration: "none", color: "inherit"}}
                 >
                     Forum
                 </Typography>
 
-                <Box>
+                <Box sx={{
+                    display: "flex",
+                    flexDirection: {xs: "column"},
+                    justifyContent: {xs: "space-between"},
+                    alignItems: {xs: 'flex-end'}
+                }}>
                     <Button color="inherit" component={Link} to="/profile">
                         Профиль
                     </Button>
 
                     {
-                        isAdmin &&  <Button color="inherit" component={Link} to="/admin">
+                        isAdmin && <Button sx={{textAlign: {xs: 'end'}}} color="inherit" component={Link} to="/admin">
                             Страница Администратора
                         </Button>
                     }
